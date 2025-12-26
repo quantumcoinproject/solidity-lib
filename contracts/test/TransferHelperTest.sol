@@ -75,7 +75,7 @@ contract TransferHelperTestFakeERC20Noncompliant {
     }
 
     function transfer(address, uint256) external view {
-        require(!shouldRevert);
+        require(!shouldRevert,'tht1');
     }
 
     function transferFrom(
@@ -83,11 +83,11 @@ contract TransferHelperTestFakeERC20Noncompliant {
         address,
         uint256
     ) external view {
-        require(!shouldRevert);
+        require(!shouldRevert,'tht2');
     }
 
     function approve(address, uint256) external view {
-        require(!shouldRevert);
+        require(!shouldRevert,'tht3');
     }
 }
 
@@ -99,7 +99,7 @@ contract TransferHelperTestFakeFallback {
     }
 
     receive() external payable {
-        require(!shouldRevert);
+        require(!shouldRevert,'tht4');
     }
 
     function withdraw() external {
