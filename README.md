@@ -1,28 +1,39 @@
-# uniswap-lib
+# @quantumcoin/solidity-lib
 
-[![Tests](https://github.com/Uniswap/uniswap-lib/workflows/Tests/badge.svg)](https://github.com/Uniswap/uniswap-lib/actions?query=workflow%3ATests)
-[![Static Analysis](https://github.com/Uniswap/uniswap-lib/workflows/Static%20Analysis/badge.svg)](https://github.com/Uniswap/uniswap-lib/actions?query=workflow%3A%22Static+Analysis%22)
-[![Lint](https://github.com/Uniswap/uniswap-lib/workflows/Lint/badge.svg)](https://github.com/Uniswap/uniswap-lib/actions?query=workflow%3ALint)
-[![Fuzz Testing](https://github.com/Uniswap/uniswap-lib/workflows/Fuzz%20Testing/badge.svg)](https://github.com/Uniswap/uniswap-lib/actions?query=workflow%3A%22Fuzz+Testing%22)
-[![npm](https://img.shields.io/npm/v/@uniswap/lib)](https://unpkg.com/@uniswap/lib@latest/)
+Solidity libraries shared across QuantumSwap contracts on the QuantumCoin blockchain.
+This package focuses on safety and execution gas efficiency.
 
-Solidity libraries that are shared across Uniswap contracts. This package focuses on safety and execution gas efficiency.
+Fork of [@uniswap/lib](https://github.com/Uniswap/uniswap-lib) (GPL-3.0-or-later), adapted for
+QuantumCoin: Solidity 0.7.6 and 32-byte addresses (`AddressStringUtil`, `SafeERC20Namer`).
 
-## Install
+# Local Development
 
-Run `yarn` to install dependencies.
+Requires `node@>=18`. Contracts are compiled with the
+[`@quantumcoin/solc`](https://www.npmjs.com/package/@quantumcoin/solc) npm package
+(QuantumCoin's Solidity 0.7.6 with 32-byte address support).
 
-## Test
+## Install Dependencies
 
-Run `yarn test` to execute the test suite.
+`npm install`
+
+## Compile
+
+`npm run compile`
+
+## Run Tests
+
+`npm test`
+
+Tests run against a local QuantumCoin devnet using the `quantumcoin` SDK. The devnet is
+downloaded, installed, and started automatically by `scripts/devnet.js` (Windows, macOS, and
+Ubuntu). Overrides: `QC_RPC_URL`, `QC_DEVNET_DIR`, `QC_KEYSTORE`, `QC_KEY_PASSWORD`.
 
 ## Usage
 
-Install this in another project via `yarn add @uniswap/lib`
+Install this in another project via `npm install @quantumcoin/solidity-lib`
 
 Then import the contracts via:
 
 ```solidity
-import '@uniswap/lib/contracts/libraries/Babylonian.sol';
-
+import '@quantumcoin/solidity-lib/contracts/libraries/Babylonian.sol';
 ```
