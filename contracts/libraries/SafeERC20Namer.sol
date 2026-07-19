@@ -42,9 +42,9 @@ library SafeERC20Namer {
     }
 
     // uses a heuristic to produce a token name from the address
-    // the heuristic returns the full hex of the address string in upper case
+    // the heuristic returns the full hex of the 32-byte address string in upper case
     function addressToName(address token) private pure returns (string memory) {
-        return AddressStringUtil.toAsciiString(token, 40);
+        return AddressStringUtil.toAsciiString(token, 64);
     }
 
     // uses a heuristic to produce a token symbol from the address
